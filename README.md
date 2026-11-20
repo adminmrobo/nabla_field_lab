@@ -20,4 +20,5 @@
 - 원자료: matharium 「Vector Derivatives — Same operators, different coordinates」 (원통좌표 기호 s → ρ)
 - 캐릭터: 연구실 식구(fruitfly-lab-expressions)
 - 로봇 치수·옵션 수치·수익률은 모두 교육용 예시이며, 경영·투자 권고가 아닙니다.
-- 기획·검산값·그림 지시문: [docs/PLAN.md](docs/PLAN.md)
+- 기획·검산값: [docs/PLAN.md](docs/PLAN.md)
+- 그림 생성 지시문(16비트 RPG 픽셀아트, 픽셀 확인표 포함): [docs/IMAGE_PROMPTS.md](docs/IMAGE_PROMPTS.md)

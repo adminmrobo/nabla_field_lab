@@ -29,6 +29,7 @@ A 입문 직장인 4.0 · B 생산기술팀장 3.5 · C 로봇 엔지니어 3.5 
 남은 과제: 표지 그림, 방 3 키보드 조작(출발점), 방 4 베가 화살표, 회전(curl) 응용 방(전선 둘레 자기장) 검토
 
 ## 4. 그림 지시문 (16비트 RPG 픽셀아트)
+> 복사해 붙이는 완성 문구와 픽셀 확인표는 [IMAGE_PROMPTS.md](IMAGE_PROMPTS.md)를 쓴다. 아래는 요약이다.
 공통 첫머리(그대로 붙임): "Match the art style, proportions and colors of the attached reference images exactly (if there are no reference images: 16-bit RPG style pixel art, bold dark outline, 2-3 tone shading, small highlights)."
 공통 끝: "No text, numbers or symbols in the image; leave speech bubbles empty. Keep faces and hands inside the safe area (12% left/right, 10% top, 18% bottom); keep the bottom-left corner empty. White daytime lab palette."
 참고 그림: fruitfly-lab-expressions 캐릭터 그림만 첨부. 캐릭터 묘사는 docs/genspark_pixel 꾸러미의 정해진 영어 줄을 그대로 쓴다.
