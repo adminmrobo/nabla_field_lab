@@ -182,3 +182,51 @@ Characters:
 
 Pixel art only: visible square pixels, limited palette, no smooth gradients, no painterly or 3D-render look. No text, letters, numbers or symbols anywhere in the image; leave any speech bubbles empty. Keep faces and hands inside the safe area (12% from left and right edges, 10% from top, 18% from bottom). Keep the bottom-left corner empty. Bright white daytime lab palette with teal, orange and navy accents.
 ```
+
+## 다시 받기 v2 — scene_r2 · scene_r5 · scene_r6 (2026-11-21)
+
+> 1차 결과에서 장면 뜻이 드러나지 않은 3장. 1차 그림(cover_index 등 통과한 그림 1~2장)을 참고 그림으로 함께 올려 배경·화풍을 맞춘다. 받은 뒤 위 픽셀 확인표로 점검한다.
+> 확인 포인트: r2 — 팔 두 마디가 일직선, 팔끝 주황 상자가 납작한 선 / r5 — 왼쪽 주황 부채꼴이 청록의 두 배, 오른쪽은 같은 폭 / r6 — 연구실 배경(흰 벽·청록 띠·바닥 타일·화이트보드) 있음.
+
+### scene_r2 v2 — 3:2 · 1200×800 · 방 2 쭉 편 팔 (다시 받기 v2)
+
+```text
+Match the art style, proportions and colors of the attached reference images exactly (if there are no reference images: 16-bit RPG style pixel art, bold dark outline, 2-3 tone shading, small highlights).
+
+Same white daytime lab interior as the other scenes (white walls with a teal stripe, light gray floor tiles). A two-joint robot arm on a short pillar, seen from the side: BOTH arm segments form ONE perfectly straight horizontal line, fully extended, no bend at the elbow joint at all. At the very tip of the arm floats a tiny orange parallelogram that is squashed flat into a thin orange line (a collapsed box). The fruit-fly researcher holds a magnifier right next to the flattened orange line; Sia looks surprised with one hand raised; the abacus robot flexes its arms proudly beside the straight arm.
+
+Characters:
+- Sia: young woman, long straight black hair, dark eyes, black maid-style lab uniform with white apron and gray bow.
+- The fruit-fly researcher: a fruit fly wearing a blue round helmet with big red compound-eye goggles and cables, transparent wings.
+- The abacus robot: small robot with a beige monitor head showing a simple green face, antenna, abacus-frame body, tank treads.
+
+Pixel art only: visible square pixels, limited palette, no smooth gradients, no painterly or 3D-render look. No text, letters, numbers or symbols anywhere in the image; leave any speech bubbles empty. Keep faces and hands inside the safe area (12% from left and right edges, 10% from top, 18% from bottom). Keep the bottom-left corner empty. Bright white daytime lab palette with teal, orange and navy accents.
+```
+
+### scene_r5 v2 — 3:2 · 1200×800 · 방 5 로그 좌표 (다시 받기 v2)
+
+```text
+Match the art style, proportions and colors of the attached reference images exactly (if there are no reference images: 16-bit RPG style pixel art, bold dark outline, 2-3 tone shading, small highlights).
+
+Same white daytime lab interior as the other scenes. A lab wall with two framed dark-navy chart panels side by side. LEFT panel: a narrow teal fan of wiggly lines near the bottom, and above it an orange fan of wiggly lines that is clearly TWICE AS WIDE (spreads twice as far up and down) as the teal fan. RIGHT panel: the same teal and orange fans, but now both fans have EXACTLY THE SAME width, stacked one above the other. The lines are wiggly random-walk paths spreading out from the left edge like a fan, not smooth bell curves. Sia compares the two panels with a magnifying glass; the abacus robot looks shocked, pointing at the wide orange fan on the left panel.
+
+Characters:
+- Sia: young woman, long straight black hair, dark eyes, black maid-style lab uniform with white apron and gray bow.
+- The abacus robot: small robot with a beige monitor head showing a simple green face, antenna, abacus-frame body, tank treads.
+
+Pixel art only: visible square pixels, limited palette, no smooth gradients, no painterly or 3D-render look. No text, letters, numbers or symbols anywhere in the image; leave any speech bubbles empty. Keep faces and hands inside the safe area (12% from left and right edges, 10% from top, 18% from bottom). Keep the bottom-left corner empty. Bright white daytime lab palette with teal, orange and navy accents.
+```
+
+### scene_r6 v2 — 3:2 · 1200×800 · 방 6 두 자산 돌리기 (다시 받기 v2)
+
+```text
+Match the art style, proportions and colors of the attached reference images exactly (if there are no reference images: 16-bit RPG style pixel art, bold dark outline, 2-3 tone shading, small highlights).
+
+Same white daytime lab interior as the other scenes (white walls with a teal stripe, light gray floor tiles, a large whiteboard on the wall). On the whiteboard, a tilted oval cloud of small navy dots leaning 45 degrees. In front of the board, Moa rotates two crossed rulers, one orange and one teal, like a compass so that the orange ruler lines up with the long direction of the oval and the teal ruler with the short direction. The fruit-fly researcher stands beside her and nods.
+
+Characters:
+- Moa: young woman, long light-brown hair with white frilled headband, mustard maid-style lab cardigan with red striped bow.
+- The fruit-fly researcher: a fruit fly wearing a blue round helmet with big red compound-eye goggles and cables, transparent wings.
+
+Pixel art only: visible square pixels, limited palette, no smooth gradients, no painterly or 3D-render look. No text, letters, numbers or symbols anywhere in the image; leave any speech bubbles empty. Keep faces and hands inside the safe area (12% from left and right edges, 10% from top, 18% from bottom). Keep the bottom-left corner empty. Bright white daytime lab palette with teal, orange and navy accents.
+```
