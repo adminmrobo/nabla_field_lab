@@ -370,9 +370,16 @@ footer{border-top:1px solid var(--line);margin-top:70px;padding:26px 0 40px;font
 <!-- ================= ROOM 4 ================= -->
 <section class="room" id="room-4">
 <div class="wing x">거래소동 방 4</div>
-<h2>옵션 가격 언덕 — 그리스 문자는 ∇의 성분</h2>
+<h2>옵션 가격 언덕 — 그리스 문자(델타·감마·세타)는 방향별 기울기</h2>
 <div class="tags"><span>방법: 그래디언트·2차 미분</span><span>설정: 행사가 100원, 변동성 20%, 금리 0, 블랙-숄즈 식</span><span>일상: 등산 지도의 동쪽·북쪽 기울기</span></div>
 <figure class="scene" style="margin-left:0"><img src="assets/scene_r4.webp" width="1200" height="800" loading="lazy" alt="격자 언덕 위의 점과 빨강·파랑 기울기 화살표, 곧은 자를 든 주판봇"></figure>
+<div class="easy" style="margin:12px 0"><b>옵션이 처음이라면 — 그림 한 장</b> 콜옵션은 "1년 뒤 주식을 100원(행사가)에 <b>살 수 있는 권리</b>"입니다. 사야 할 의무는 없습니다. ① 1년 뒤 주가 120원 → 100원에 사서 바로 팔면 <b>20원 이득</b> ② 주가 90원 → 권리를 쓰지 않으면 그만, <b>이득 0</b>(손해는 권리 값뿐) ③ 그래서 오늘 이 권리의 값은 "1년 동안 주가가 100원을 얼마나 넘을 것 같나"에 달려 있습니다. 이 방은 그 값이 주가·남은 기간·흔들림 크기에 따라 어떻게 기우는지를 봅니다.<svg viewBox="0 0 400 160" role="img" aria-label="1년 뒤 주가에 따른 콜옵션의 이득: 100원 이하는 0, 그 위로는 주가 − 100" style="width:100%;max-width:420px;display:block;margin:8px 0">
+<line x1="40" y1="130" x2="370" y2="130" stroke="#999"/><line x1="40" y1="20" x2="40" y2="130" stroke="#999"/>
+<polyline points="40,130 56,130 72,130 88,130 104,130 120,130 136,130 152,130 168,130 184,130 200,130 216,120 232,110 248,100 264,90 280,80 296,70 312,60 328,50 344,40 360,30" fill="none" stroke="#0f6f73" stroke-width="3"/>
+<line x1="200" y1="125" x2="200" y2="135" stroke="#555"/><text x="200" y="150" font-size="12" text-anchor="middle">행사가 100원</text>
+<text x="40" y="150" font-size="12" text-anchor="middle">80원</text><text x="360" y="150" font-size="12" text-anchor="middle">120원</text>
+<text x="46" y="28" font-size="12">이득(원)</text><text x="352" y="36" font-size="12" text-anchor="end">20원</text><text x="120" y="122" font-size="12" text-anchor="middle">이득 0 (안 사면 그만)</text>
+<text x="372" y="128" font-size="11" text-anchor="end" fill="#666">1년 뒤 주가</text></svg></div>
 <div class="talk"><div class="t edu" data-c="doctor/E07"><div><b>박사</b>1년 뒤 주식을 100원에 살 수 있는 권리(콜옵션)가 있어요. 오늘 주가가 오르면 이 권리 값은 어떻게 될까요?</div></div></div>
 <div class="pair">
 <div class="box why"><h3>왜 이 방법을 쓰나</h3>
