@@ -73,7 +73,7 @@ summary{cursor:pointer;font-weight:700;min-height:28px}
 table{width:100%;border-collapse:collapse;font-size:15px;margin:8px 0}
 td,th{padding:7px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
 th{font-size:13px;color:var(--mute);font-weight:500}
-.try{background:var(--org-s);border-radius:10px;padding:10px 12px;margin-top:10px;line-height:1.7}
+.try{background:var(--org-s);border-radius:10px;padding:10px 12px;margin-top:10px;line-height:1.7}.try ol{margin:6px 0 0;padding-left:1.3em;display:flex;flex-direction:column;gap:6px}.saywords{background:#fff;border-left:4px solid var(--org);padding:6px 0 6px 12px}details.eq{margin-top:12px;background:#fff}
 .daily{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;margin:12px 0}
 .daily div{border-radius:12px;padding:12px 14px;background:var(--soft)}
 .daily b{display:block;font-size:14px;color:var(--mute)}
@@ -98,7 +98,7 @@ th{font-size:13px;color:var(--mute);font-weight:500}
 .fig canvas{touch-action:none;cursor:grab}
 .fig .hint{position:absolute;left:10px;bottom:6px;font-size:13px;color:var(--mute);pointer-events:none}
 .ctl{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:4px 18px;margin-top:10px}
-.sl{display:grid;grid-template-columns:5.6em minmax(0,1fr) 4.4em;align-items:center;gap:8px}
+.sl{display:grid;grid-template-columns:7.2em minmax(0,1fr) 4.4em;align-items:center;gap:8px}
 .sl label{font-size:15px}
 .sl output{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 input[type=range]{width:100%;height:44px;accent-color:var(--navy)}
@@ -135,7 +135,7 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid
 pre{overflow-x:auto;background:var(--soft);border-radius:10px;padding:12px;font-size:13px;line-height:1.5;max-height:280px}
 footer{border-top:1px solid var(--line);margin-top:70px;padding:26px 0 40px;font-size:14px;color:var(--mute)}
 .scroll{overflow-x:auto}
-@media(max-width:600px){table{font-size:13.5px}.fig{min-height:300px}.sl{grid-template-columns:5em minmax(0,1fr) 4em}}
+@media(max-width:600px){table{font-size:13.5px}.fig{min-height:300px}.sl{grid-template-columns:6.4em minmax(0,1fr) 4em}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -204,6 +204,7 @@ footer{border-top:1px solid var(--line);margin-top:70px;padding:26px 0 40px;font
 <a class="x" href="#room-6"><b>거래소동 방 6</b>두 자산을 돌려 보기<span class="why">섞임이 0이 되는 축</span></a>
 <a class="e" href="#duel"><b>대결</b>좌표 고르기 5판<span class="why">박사 vs 조수, 심판은 여러분</span></a>
 </div>
+<div class="easy" style="margin-top:16px"><b>30초 복습 — ∇ 두 가지만</b> ① <b>기울기(그래디언트)</b>: "어느 쪽이 가장 가파른 오르막이고, 얼마나 가파른가"를 알려 주는 화살표입니다. 동쪽으로 1 m 갈 때 2 m 오르고 북쪽으로 1 m 갈 때 1 m 오르면 화살표는 (2, 1)입니다. ② <b>라플라시안</b>: "내 높이와 주변 평균 높이의 차이"입니다. 이 두 가지만 알면 일곱 방을 모두 지날 수 있어요. 처음 보셔도 괜찮습니다.</div>
 </section>
 
 <!-- ================= ROOM 0 ================= -->
@@ -217,17 +218,15 @@ footer{border-top:1px solid var(--line);margin-top:70px;padding:26px 0 40px;font
 <div class="box why"><h3>왜 이 방법을 쓰나</h3>
 <p><b>문제:</b> 둥근 물체의 위치는 "중심에서 얼마, 몇 도"로 말하는 게 편합니다. 그런데 각도 한 걸음이 몇 m인지는 자리마다 다릅니다.</p>
 <p><b>앞 방법의 한계:</b> 가로·세로·높이(직교좌표)는 눈금 간격이 늘 같지만, 둥근 모양을 적으면 식이 길어집니다.</p>
-<p><b>해법:</b> 각도 눈금에 배율(축척 인자)을 곱해 실제 거리로 바꿉니다. 원통좌표는 1, ρ, 1, 구좌표는 1, r, r sin θ입니다.</p>
+<p><b>해법:</b> 각도 쪽 한 걸음에 배율(축척 인자)을 곱해 실제 거리로 바꿉니다. 원통좌표에서는 그 배율이 "중심에서 거리"입니다.</p>
 <div class="easy"><b>쉽게 말하면</b> 회전목마 바깥 말은 같은 각도에도 더 멀리 달립니다.</div></div>
 <div class="box math"><h3>수학 수식을 어려워하는 조수가 대신 물어봅니다</h3>
-<div class="t" data-c="haru/E04"><div><b>하루</b>원자료 식에 1/ρ가 자꾸 붙어 있어요. ρ가 왜 끼어들어요?</div></div>
-<p><b>학교 수학으로 보면:</b> 부채꼴 호의 길이 l = r·θ (각도는 라디안).</p>
-<table><thead><tr><th>식 조각</th><th>읽는 법</th><th>뜻</th></tr></thead><tbody>
-<tr><td class="m">ρ</td><td>로</td><td>중심에서 떨어진 거리</td></tr>
-<tr><td class="m">dφ</td><td>디 파이</td><td>아주 조금 돌린 각도</td></tr>
-<tr><td class="m">ρ·dφ</td><td>로 디 파이</td><td>실제로 움직인 거리</td></tr></tbody></table>
-<div class="try"><b>숫자로 한 번 해 보기</b><br>ρ = 2 m에서 dφ = 0.1 → 2 × 0.1 = <b>0.2 m</b><br>ρ = 0.5 m에서 dφ = 0.1 → 0.5 × 0.1 = <b>0.05 m</b></div>
-<div class="t" data-c="haru/E10"><div><b>하루</b>같은 0.1인데 네 배 차이! 그래서 기울기를 잴 때 ρ로 나눠 주는 거군요.</div></div>
+<div class="t" data-c="haru/E04"><div><b>하루</b>원자료 식에 1/ρ가 자꾸 붙어 있어요. 왜 거리로 나눠요?</div></div>
+<p class="saywords"><b>말로 먼저:</b> 각도만으로는 몇 m 움직였는지 알 수 없습니다. 중심에서 멀수록 같은 각도에 더 많이 움직이니, 각도에 "중심에서 거리"를 곱해야 실제 거리가 됩니다. 기울기는 "실제로 1 m 갈 때 얼마나 오르나"라서, 각도 쪽 변화는 이 거리로 나눠 줍니다.</p>
+<p><b>학교 수학으로 보면:</b> 부채꼴 호의 길이 = 반지름 × 각도(라디안)</p>
+<div class="try"><b>숫자로 한 번 해 보기</b><ol><li>중심에서 2 m, 0.1만큼 돌림 → 2 × 0.1 = <b>0.2 m</b></li><li>중심에서 0.5 m, 같은 0.1 → 0.5 × 0.1 = <b>0.05 m</b></li><li>같은 각도인데 바깥이 <b>4배</b> 더 움직였습니다</li></ol></div>
+<details class="eq"><summary>식으로 보면 (몰라도 됩니다)</summary><table><thead><tr><th>식 조각</th><th>읽는 법</th><th>뜻</th></tr></thead><tbody><tr><td class="m">ρ</td><td>로</td><td>중심에서 떨어진 거리</td></tr><tr><td class="m">dφ</td><td>디 파이</td><td>아주 조금 돌린 각도</td></tr><tr><td class="m">ρ · dφ</td><td>로 디 파이</td><td>실제로 움직인 거리</td></tr><tr><td class="m">(1/ρ) ∂t/∂φ</td><td>로 분의 일, 파이 쪽 기울기</td><td>각도 쪽 변화를 실제 거리로 나눈 기울기</td></tr></tbody></table></details>
+<div class="t" data-c="haru/E10"><div><b>하루</b>같은 0.1인데 네 배 차이! 그래서 거리로 나눠 주는 거군요.</div></div>
 </div></div>
 <div class="daily"><div><b>일상으로 치면</b>회전목마 바깥 자리가 더 신나는 이유. 같은 시간에 더 긴 길을 달립니다.</div><div><b>공장에서는</b>회전 테이블 가장자리 부품이 같은 각속도에서 더 빨리 움직입니다. 고정 지그를 가장자리에 더 단단히 겁니다.</div></div>
 <div class="talk">
@@ -238,13 +237,13 @@ footer{border-top:1px solid var(--line);margin-top:70px;padding:26px 0 40px;font
 <div class="lab"><div class="hd"><b>실험 ① 같은 각도, 다른 거리</b><span>슬라이더를 움직여 보세요</span></div>
 <div class="fig" style="min-height:340px"><svg id="r0svg" role="img" aria-label="원통좌표의 바닥 격자와 각도 한 걸음"></svg></div>
 <div class="ctl">
-<div class="sl"><label for="r0rho">거리 ρ</label><input type="range" id="r0rho" min="0.3" max="3" step="0.1" value="2"><output id="r0rhoo"></output></div>
-<div class="sl"><label for="r0dp">각도 dφ</label><input type="range" id="r0dp" min="0.05" max="0.6" step="0.05" value="0.1"><output id="r0dpo"></output></div>
+<div class="sl"><label for="r0rho">중심에서 거리</label><input type="range" id="r0rho" min="0.3" max="3" step="0.1" value="2"><output id="r0rhoo"></output></div>
+<div class="sl"><label for="r0dp">돌린 각도</label><input type="range" id="r0dp" min="0.05" max="0.6" step="0.05" value="0.1"><output id="r0dpo"></output></div>
 </div>
 <div class="read" id="r0read"></div></div>
-<div class="solve"><b>풀이</b> 원통좌표 그래디언트의 φ 성분이 (1/ρ)·∂t/∂φ인 까닭입니다. 각도로 잰 변화를 "실제 거리"로 나눠야 진짜 기울기가 됩니다. 구좌표의 1/r, 1/(r sin θ)도 같은 이유입니다.</div>
-<div class="limit"><b>이 방의 한계</b> 중심(ρ = 0)에서는 아무리 돌려도 움직이지 않습니다. 배율이 0이 되는 자리에서는 각도 정보가 사라집니다. 로봇 팔에도 이런 자리가 있을까요? 공장동으로 갑니다.</div>
-<div class="quiz" data-ans="b"><div class="q">ρ = 3 m에서 각도를 0.2 돌렸습니다. 실제로 움직인 거리는?</div><div class="opts"><button class="btn" data-o="a">0.2 m</button><button class="btn" data-o="b">0.6 m</button><button class="btn" data-o="c">3.2 m</button></div><div class="fb" data-ok="맞아요. 3 × 0.2 = 0.6 m. 배율 ρ = 3을 곱했습니다." data-no="각도 눈금에 배율 ρ를 곱해 보세요. 3 × 0.2입니다."></div></div>
+<div class="solve"><b>풀이</b> 원자료 표의 원통·구좌표 기울기 식에 "거리로 나누기"(1/ρ, 1/r)가 붙은 까닭입니다. 각도로 잰 변화를 실제 거리로 나눠야 진짜 기울기가 됩니다.</div>
+<div class="limit"><b>이 방의 한계</b> 중심(거리 0)에서는 아무리 돌려도 움직이지 않습니다. 배율이 0이 되는 자리에서는 각도 정보가 사라집니다. 로봇 팔에도 이런 자리가 있을까요? 공장동으로 갑니다.</div>
+<div class="quiz" data-ans="b"><div class="q">중심에서 3 m 떨어진 곳에서 각도를 0.2 돌렸습니다. 실제로 움직인 거리는?</div><div class="opts"><button class="btn" data-o="a">0.2 m</button><button class="btn" data-o="b">0.6 m</button><button class="btn" data-o="c">3.2 m</button></div><div class="fb" data-ok="맞아요. 3 × 0.2 = 0.6 m. 중심에서 거리 3을 곱했습니다." data-no="돌린 각도에 중심에서 거리를 곱해 보세요. 3 × 0.2입니다."></div></div>
 </section>
 
 <div class="part f"><h2>공장동 — 로봇 팔과 드론</h2><p>가상의 조립 공장. 팔 길이 40 cm + 25 cm, 승강 20 cm인 수평 조립 로봇과 물류 드론이 일합니다.</p></div>
@@ -260,36 +259,34 @@ footer{border-top:1px solid var(--line);margin-top:70px;padding:26px 0 40px;font
 <div class="box why"><h3>왜 이 방법을 쓰나</h3>
 <p><b>문제:</b> 팔끝 위치를 가로·세로로 적으면 "닿는가"를 판정하는 식이 두 관절 각도가 섞여 복잡해집니다.</p>
 <p><b>앞 방의 한계:</b> 각도 한 걸음의 길이가 자리마다 다르다는 것만 봤지, 어디에 쓰는지는 아직 몰랐습니다.</p>
-<p><b>해법:</b> 원통좌표로 쓰면 닿는 곳이 세 줄이 됩니다. ① 15 cm ≤ ρ ≤ 65 cm ② φ는 아무 각도 ③ 0 ≤ z ≤ 20 cm.</p>
+<p><b>해법:</b> 원통좌표(중심에서 거리·방향·높이)로 쓰면 닿는 곳이 세 줄이 됩니다. ① 중심에서 거리 15~65 cm ② 방향은 아무 쪽 ③ 높이 0~20 cm.</p>
 <div class="easy"><b>쉽게 말하면</b> 컴퍼스로 큰 원을 그리고 가운데 작은 원을 오려 낸 도넛을 위로 20 cm 쌓은 모양입니다.</div></div>
 <div class="box math"><h3>수학 수식을 어려워하는 조수가 대신 물어봅니다</h3>
-<div class="t" data-c="haru/E04"><div><b>하루</b>팔끝이 중심에서 얼마나 떨어졌는지는 어떻게 계산해요?</div></div>
-<p><b>학교 수학으로 보면:</b> 코사인법칙(삼각형 두 변과 끼인각으로 나머지 변 구하기).</p>
-<table><thead><tr><th>식 조각</th><th>뜻</th></tr></thead><tbody>
-<tr><td class="m">L₁ = 40, L₂ = 25</td><td>첫째·둘째 팔 길이(cm)</td></tr>
-<tr><td class="m">θ₂</td><td>둘째 관절이 꺾인 각도(세타 투), 0이면 쭉 편 팔</td></tr>
-<tr><td class="m">ρ² = L₁² + L₂² + 2L₁L₂ cos θ₂</td><td>중심에서 팔끝까지 거리의 제곱</td></tr></tbody></table>
-<div class="try"><b>숫자로 한 번 해 보기</b><br>θ₂ = 90° → ρ = √(1600 + 625) = <b>47.2 cm</b><br>θ₂ = 0° → 40 + 25 = <b>65 cm</b> (가장 멀리)<br>θ₂ = 180° → 40 − 25 = <b>15 cm</b> (가장 가까이)</div>
-<div class="t" data-c="haru/E10"><div><b>하루</b>첫째 관절 θ₁은 ρ에 안 들어가네요. 그냥 φ를 돌릴 뿐이에요!</div></div>
+<div class="t" data-c="haru/E04"><div><b>하루</b>팔끝이 중심에서 얼마나 떨어졌는지는 어떻게 알아요?</div></div>
+<p class="saywords"><b>말로 먼저:</b> 두 팔이 삼각형의 두 변이 되고, 남은 한 변이 "중심에서 팔끝까지 거리"입니다. 팔꿈치를 쭉 펴면 두 길이를 더한 만큼, 다 접으면 뺀 만큼 떨어집니다. 어깨 관절을 돌리면 방향만 바뀌고 거리는 그대로입니다.</p>
+<p><b>학교 수학으로 보면:</b> 피타고라스 정리(직각일 때), 코사인법칙(그 밖의 각도)</p>
+<div class="try"><b>숫자로 한 번 해 보기</b><ol><li>쭉 편 팔: 40 + 25 = <b>65 cm</b> (가장 멀리)</li><li>다 접은 팔: 40 − 25 = <b>15 cm</b> (가장 가까이)</li><li>팔꿈치를 직각으로: √(40² + 25²) = √2225 ≈ <b>47.2 cm</b></li></ol></div>
+<details class="eq"><summary>식으로 보면 (몰라도 됩니다)</summary><table><thead><tr><th>식 조각</th><th>읽는 법</th><th>뜻</th></tr></thead><tbody><tr><td class="m">L₁, L₂</td><td>엘 원, 엘 투</td><td>첫째·둘째 팔 길이(40 cm, 25 cm)</td></tr><tr><td class="m">θ₂</td><td>세타 투</td><td>팔꿈치가 꺾인 각도, 0이면 쭉 편 팔</td></tr><tr><td class="m">ρ² = L₁² + L₂² + 2L₁L₂ cos θ₂</td><td>코사인법칙</td><td>중심에서 팔끝까지 거리의 제곱</td></tr></tbody></table></details>
+<div class="t" data-c="haru/E10"><div><b>하루</b>결국 15~65 cm 고리 안만 닿고, 방향은 아무 쪽이나 되는군요!</div></div>
 </div></div>
 <div class="daily"><div><b>일상으로 치면</b>팔꿈치를 접었다 폈다 하면 손이 닿는 거리가 바뀌고, 어깨를 돌리면 방향만 바뀝니다.</div><div><b>공장에서는</b>부품 상자는 반지름 15~65 cm 고리 안에 둡니다. 로봇 바로 옆(15 cm 안)은 오히려 닿지 않습니다.</div></div>
 <div class="talk">
 <div class="t bot" data-c="jupanbot/E16"><div><b>주판봇</b>40 + 25 = 65! 65 cm 안이면 어디든 닿아요!</div></div>
-<div class="t fly" data-c="fruitfly/E08"><div><b>초파리 연구원</b>θ₂를 끝까지 접어 봐. 그리고 "닿는 곳 보기"를 켜 봐.</div></div>
+<div class="t fly" data-c="fruitfly/E08"><div><b>초파리 연구원</b>팔꿈치 관절을 끝까지 접어 봐. 그리고 "닿는 곳 보기"를 켜 봐.</div></div>
 <div class="t" data-c="moa/E09"><div><b>모아</b>가운데 15 cm가 비어 있네요. 상자 A는 너무 가까워서 못 집어요.</div></div>
 </div>
 <div class="lab"><div class="hd"><b>실험 ② 3D 로봇 팔 작업 공간</b><span>끌어서 돌리기 · 두 번 눌러 처음 각도로</span></div>
 <div class="fig" style="min-height:420px"><canvas id="r1cv" aria-label="3D 로봇 팔과 도넛 모양 작업 공간"></canvas><div class="hint">상자 A(빨강)·상자 B(초록)</div></div>
 <div class="ctl">
-<div class="sl"><label for="r1a">첫째 관절 θ₁</label><input type="range" id="r1a" min="-180" max="180" step="1" value="20"><output id="r1ao"></output></div>
-<div class="sl"><label for="r1b">둘째 관절 θ₂</label><input type="range" id="r1b" min="0" max="180" step="1" value="90"><output id="r1bo"></output></div>
-<div class="sl"><label for="r1z">높이 z</label><input type="range" id="r1z" min="0" max="20" step="1" value="10"><output id="r1zo"></output></div>
+<div class="sl"><label for="r1a">어깨 관절</label><input type="range" id="r1a" min="-180" max="180" step="1" value="20"><output id="r1ao"></output></div>
+<div class="sl"><label for="r1b">팔꿈치 관절</label><input type="range" id="r1b" min="0" max="180" step="1" value="90"><output id="r1bo"></output></div>
+<div class="sl"><label for="r1z">높이</label><input type="range" id="r1z" min="0" max="20" step="1" value="10"><output id="r1zo"></output></div>
 </div>
 <div class="btns"><button class="btn" id="r1ws" aria-pressed="true">닿는 곳 보기</button><button class="btn" id="r1goB">상자 B로 팔 보내기</button></div>
 <div class="read" id="r1read"></div></div>
-<div class="solve"><b>풀이</b> 직교좌표로는 "x² + y²이 15²과 65² 사이"처럼 두 값이 섞인 조건이 됩니다. 원통좌표로는 ρ 하나만 보면 됩니다. 현장 모양(빙빙 도는 팔)에 맞춘 좌표가 판정을 한 줄로 줄였습니다.</div>
+<div class="solve"><b>풀이</b> 가로·세로 좌표로는 두 값을 섞어 계산해야 닿는지 알 수 있습니다. 원통좌표로는 "중심에서 거리" 하나만 보면 됩니다. 현장 모양(빙빙 도는 팔)에 맞춘 좌표가 판정을 한 줄로 줄였습니다.</div>
 <div class="limit"><b>이 방의 한계</b> 닿는지는 알았지만, 같은 자리라도 팔끝을 "잘 움직일 수 있는지"는 자세마다 다릅니다. 방 2에서 관절 한 걸음이 팔끝을 얼마나 움직이는지 잽니다.</div>
-<div class="quiz" data-ans="c"><div class="q">상자 A가 중심에서 11 cm 떨어져 있습니다. 팔이 닿을까요?</div><div class="opts"><button class="btn" data-o="a">닿는다, 65 cm 안이니까</button><button class="btn" data-o="b">높이를 바꾸면 닿는다</button><button class="btn" data-o="c">닿지 않는다, 15 cm보다 가깝다</button></div><div class="fb" data-ok="맞아요. 팔을 다 접어도 15 cm가 가장 가까운 거리입니다." data-no="ρ의 아래 한계 15 cm를 떠올려 보세요. 높이 z는 ρ를 바꾸지 않습니다."></div></div>
+<div class="quiz" data-ans="c"><div class="q">상자 A가 중심에서 11 cm 떨어져 있습니다. 팔이 닿을까요?</div><div class="opts"><button class="btn" data-o="a">닿는다, 65 cm 안이니까</button><button class="btn" data-o="b">높이를 바꾸면 닿는다</button><button class="btn" data-o="c">닿지 않는다, 15 cm보다 가깝다</button></div><div class="fb" data-ok="맞아요. 팔을 다 접어도 15 cm가 가장 가까운 거리입니다." data-no="다 접은 팔도 15 cm보다 가까이 오지 못합니다. 높이는 거리를 바꾸지 않습니다."></div></div>
 </section>
 
 <!-- ================= ROOM 2 ================= -->
@@ -306,31 +303,29 @@ footer{border-top:1px solid var(--line);margin-top:70px;padding:26px 0 40px;font
 <p><b>해법:</b> 입구 방의 "한 걸음 상자"를 관절에 그대로 씁니다. 상자 넓이(야코비안 행렬식)가 0에 가까우면 그 자세는 피합니다.</p>
 <div class="easy"><b>쉽게 말하면</b> 팔을 쭉 편 채로는 손을 앞뒤로 밀고 당길 수 없습니다.</div></div>
 <div class="box math"><h3>수학 수식을 어려워하는 조수가 대신 물어봅니다</h3>
-<div class="t" data-c="haru/E04"><div><b>하루</b>상자 넓이 식에 왜 sin이 붙어요?</div></div>
-<p><b>학교 수학으로 보면:</b> 평행사변형 넓이 = 두 변 × sin(끼인각).</p>
-<table><thead><tr><th>식 조각</th><th>뜻</th></tr></thead><tbody>
-<tr><td class="m">dθ₁, dθ₂</td><td>두 관절을 조금씩 돌린 각도</td></tr>
-<tr><td class="m">L₁·L₂·sin θ₂</td><td>한 걸음 상자의 배율(야코비안 행렬식)</td></tr>
-<tr><td class="m">넓이 = L₁L₂ sin θ₂ · dθ₁dθ₂</td><td>팔끝이 쓸고 가는 넓이</td></tr></tbody></table>
-<div class="try"><b>숫자로 한 번 해 보기</b> (관절마다 0.01 rad)<br>θ₂ = 90° → 40 × 25 × 1 × 0.0001 = <b>0.1 cm²</b><br>θ₂ = 30° → 40 × 25 × 0.5 × 0.0001 = <b>0.05 cm²</b><br>θ₂ = 0° → sin 0 = 0 → <b>0 cm²</b></div>
-<div class="t" data-c="haru/E10"><div><b>하루</b>원통좌표의 배율 ρ처럼, 로봇 팔에도 배율이 있고 그게 0이 될 수 있군요.</div></div>
+<div class="t" data-c="haru/E04"><div><b>하루</b>상자 넓이가 왜 0이 될 수 있어요?</div></div>
+<p class="saywords"><b>말로 먼저:</b> 두 관절을 조금씩 돌리면 팔끝은 두 방향으로 밀립니다. 두 방향이 비스듬하면 넓은 상자를 쓸고 가고, 같은 방향으로 겹치면 납작한 선이 됩니다. 쭉 편 팔에서는 두 관절이 팔끝을 똑같이 옆으로만 밀어서 넓이가 0이 됩니다.</p>
+<p><b>학교 수학으로 보면:</b> 평행사변형 넓이 = 두 변 × sin(끼인각)</p>
+<div class="try"><b>숫자로 한 번 해 보기</b><ol><li>관절마다 0.01 rad(약 0.6°)씩 돌린다고 해 봅니다</li><li>팔꿈치 직각: 40 × 25 × 1 × 0.0001 = <b>0.1 cm²</b></li><li>팔꿈치 30°: sin 30° = 0.5 → <b>0.05 cm²</b></li><li>쭉 편 팔(0°): sin 0° = 0 → <b>0 cm²</b></li></ol></div>
+<details class="eq"><summary>식으로 보면 (몰라도 됩니다)</summary><table><thead><tr><th>식 조각</th><th>읽는 법</th><th>뜻</th></tr></thead><tbody><tr><td class="m">dθ₁, dθ₂</td><td>디 세타 원, 디 세타 투</td><td>두 관절을 조금씩 돌린 각도</td></tr><tr><td class="m">L₁ L₂ sin θ₂</td><td>엘 원 엘 투 사인 세타 투</td><td>한 걸음 상자의 배율(야코비안 행렬식)</td></tr></tbody></table></details>
+<div class="t" data-c="haru/E10"><div><b>하루</b>입구 방의 "중심에서 거리"처럼, 로봇 팔에도 배율이 있고 그게 0이 될 수 있군요.</div></div>
 </div></div>
 <div class="daily"><div><b>일상으로 치면</b>팔꿈치를 다 펴고 컵을 당기려 하면 힘이 안 들어갑니다. 살짝 굽혀야 앞뒤로 움직입니다.</div><div><b>공장에서는</b>로봇 제어기는 이 넓이가 0에 가까운 자세(특이점)를 피해 경로를 짭니다. 근처를 지나면 관절이 갑자기 빨리 돌 수 있습니다.</div></div>
 <div class="talk">
 <div class="t bot" data-c="jupanbot/E16"><div><b>주판봇</b>쭉 펴면 제일 멀리 가니까 최고의 자세예요!</div></div>
-<div class="t fly" data-c="fruitfly/E08"><div><b>초파리 연구원</b>θ₂를 0으로 밀어 봐. 상자가 어떻게 되는지.</div></div>
+<div class="t fly" data-c="fruitfly/E08"><div><b>초파리 연구원</b>팔꿈치 관절을 0°로 밀어 봐. 상자가 어떻게 되는지.</div></div>
 <div class="t" data-c="sia/E04"><div><b>시아</b>상자가 납작한 선이 됐어요! 한쪽으로만 움직여요.</div></div>
 </div>
-<div class="lab"><div class="hd"><b>실험 ③ 한 걸음 상자 보기 (위에서 본 팔)</b><span>θ₂를 0이나 180°로 밀어 보세요</span></div>
+<div class="lab"><div class="hd"><b>실험 ③ 한 걸음 상자 보기 (위에서 본 팔)</b><span>팔꿈치 관절을 0°나 180°로 밀어 보세요</span></div>
 <div class="fig" style="min-height:360px"><svg id="r2svg" role="img" aria-label="위에서 본 두 관절 팔과 팔끝의 한 걸음 상자"></svg></div>
 <div class="ctl">
-<div class="sl"><label for="r2a">첫째 관절 θ₁</label><input type="range" id="r2a" min="-90" max="90" step="1" value="10"><output id="r2ao"></output></div>
-<div class="sl"><label for="r2b">둘째 관절 θ₂</label><input type="range" id="r2b" min="0" max="180" step="1" value="90"><output id="r2bo"></output></div>
+<div class="sl"><label for="r2a">어깨 관절</label><input type="range" id="r2a" min="-90" max="90" step="1" value="10"><output id="r2ao"></output></div>
+<div class="sl"><label for="r2b">팔꿈치 관절</label><input type="range" id="r2b" min="0" max="180" step="1" value="90"><output id="r2bo"></output></div>
 </div>
 <div class="read" id="r2read"></div></div>
-<div class="solve"><b>풀이</b> 상자 넓이는 θ₁과 상관없이 sin θ₂만 따라갑니다. 쭉 편 팔(0°)과 다 접은 팔(180°) 모두 넓이가 0입니다. 입구 방에서 ρ = 0일 때 각도가 의미를 잃은 것과 같은 현상입니다.</div>
+<div class="solve"><b>풀이</b> 상자 넓이는 어깨 관절과 상관없이 팔꿈치 각도만 따라갑니다. 쭉 편 팔(0°)과 다 접은 팔(180°) 모두 넓이가 0입니다. 입구 방에서 중심(거리 0)에서 각도가 의미를 잃은 것과 같은 현상입니다.</div>
 <div class="limit"><b>이 방의 한계</b> 팔 하나의 자세는 이렇게 피할 수 있습니다. 하지만 선반과 기둥이 많은 공간을 날아다니는 드론의 길은 어떻게 정할까요? 방 3으로 갑니다.</div>
-<div class="quiz" data-ans="c"><div class="q">한 걸음 상자의 넓이가 0이 되는 자세는?</div><div class="opts"><button class="btn" data-o="a">쭉 편 팔(θ₂ = 0°)만</button><button class="btn" data-o="b">직각(θ₂ = 90°)</button><button class="btn" data-o="c">쭉 편 팔과 다 접은 팔 둘 다</button></div><div class="fb" data-ok="맞아요. sin 0° = sin 180° = 0입니다." data-no="sin θ₂가 0이 되는 각도를 모두 찾아보세요. 0°와 180°입니다."></div></div>
+<div class="quiz" data-ans="c"><div class="q">한 걸음 상자의 넓이가 0이 되는 자세는?</div><div class="opts"><button class="btn" data-o="a">쭉 편 팔(0°)만</button><button class="btn" data-o="b">직각으로 꺾은 팔(90°)</button><button class="btn" data-o="c">쭉 편 팔과 다 접은 팔 둘 다</button></div><div class="fb" data-ok="맞아요. sin 0° = sin 180° = 0입니다." data-no="팔꿈치를 쭉 폈을 때와 다 접었을 때를 모두 떠올려 보세요. 둘 다 0입니다."></div></div>
 </section>
 
 <!-- ================= ROOM 3 ================= -->
@@ -348,12 +343,10 @@ footer{border-top:1px solid var(--line);margin-top:70px;padding:26px 0 40px;font
 <div class="easy"><b>쉽게 말하면</b> 어느 자리도 이웃 모두보다 낮을 수 없으니, 늘 내려갈 길이 있습니다.</div></div>
 <div class="box math"><h3>수학 수식을 어려워하는 조수가 대신 물어봅니다</h3>
 <div class="t" data-c="haru/E04"><div><b>하루</b>라플라시안이 0이면 왜 웅덩이가 없어요?</div></div>
-<p><b>학교 수학으로 보면:</b> 산술평균. 평균은 가장 작은 값보다 작을 수 없습니다.</p>
-<table><thead><tr><th>식 조각</th><th>뜻</th></tr></thead><tbody>
-<tr><td class="m">∇²u = 0</td><td>내 값과 주변 평균의 차이가 0</td></tr>
-<tr><td class="m">u = (위+아래+왼+오른) ÷ 4</td><td>격자에서는 이렇게 맞춥니다</td></tr>
-<tr><td>웅덩이</td><td>이웃 모두보다 낮은 자리 → 평균 규칙에선 불가능</td></tr></tbody></table>
-<div class="try"><b>숫자로 한 번 해 보기</b><br>이웃 값 0.2, 0.4, 0.6, 0.8 → 내 값 = 2.0 ÷ 4 = <b>0.5</b><br>0.5는 0.2보다 큽니다 → 0.2 쪽으로 <b>내려갈 길이 있다</b></div>
+<p class="saywords"><b>말로 먼저:</b> 지도의 모든 자리를 "이웃 넷의 평균"으로 맞춥니다. 평균은 가장 작은 이웃보다 작을 수 없으니, 어느 자리든 더 낮은 이웃이 있거나 모두 같습니다. 그래서 목표 말고는 물이 고일 곳이 없습니다.</p>
+<p><b>학교 수학으로 보면:</b> 산술평균 — 평균은 가장 작은 값보다 작을 수 없다</p>
+<div class="try"><b>숫자로 한 번 해 보기</b><ol><li>이웃 네 자리의 값: 0.2, 0.4, 0.6, 0.8</li><li>내 값 = (0.2 + 0.4 + 0.6 + 0.8) ÷ 4 = <b>0.5</b></li><li>0.5는 0.2보다 크다 → 0.2 쪽으로 <b>내려갈 길이 있다</b></li></ol></div>
+<details class="eq"><summary>식으로 보면 (몰라도 됩니다)</summary><table><thead><tr><th>식 조각</th><th>읽는 법</th><th>뜻</th></tr></thead><tbody><tr><td class="m">∇²u = 0</td><td>나블라 제곱 유는 영</td><td>내 값과 주변 평균의 차이가 0</td></tr><tr><td class="m">u = (위 + 아래 + 왼 + 오른) ÷ 4</td><td>—</td><td>격자에서 맞추는 방법</td></tr></tbody></table></details>
 <div class="t" data-c="haru/E10"><div><b>하루</b>원자료 표의 라플라시안이 "주변 평균과 나의 차이"라는 게 이렇게 쓰이네요.</div></div>
 </div></div>
 <div class="daily"><div><b>일상으로 치면</b>팽팽한 고무막의 테두리를 잡고 한 점만 누르면, 막 안에 다른 움푹한 곳은 생기지 않습니다.</div><div><b>공장에서는</b>로봇·무인 운반차의 경로 계획 방법 가운데 하나로 이런 지도(조화 퍼텐셜)가 연구되어 왔습니다. 실제 드론은 3차원이고 움직이는 장애물도 있어 다른 방법과 함께 씁니다.</div></div>
@@ -367,7 +360,7 @@ footer{border-top:1px solid var(--line);margin-top:70px;padding:26px 0 40px;font
 <div class="btns"><button class="btn" id="r3naive" aria-pressed="true">단순 지도(끌어당김 + 장애물 언덕)</button><button class="btn" id="r3harm" aria-pressed="false">주변 평균 지도(라플라시안 0)</button><button class="btn" id="r3go">출발</button></div>
 <div class="read" id="r3read">지도를 고르고 "출발"을 눌러 보세요.</div></div>
 <div class="solve"><b>풀이</b> 단순 지도는 목표 쪽으로 끄는 힘과 선반이 밀어내는 힘이 선반 안쪽에서 맞비겨 웅덩이가 됩니다. 주변 평균 지도는 그런 자리가 생길 수 없어서, 내리막만 따라가도 선반을 돌아 목표에 닿습니다.</div>
-<div class="limit"><b>이 방의 한계</b> 격자점이 많아지면 평균 맞추기 계산이 길어집니다. 여기서는 단순하게 2차원 격자로 봤어요. 이제 같은 ∇와 ∇²가 가격에서는 무엇이 되는지 거래소동으로 갑니다.</div>
+<div class="limit"><b>이 방의 한계</b> 격자점이 많아지면 평균 맞추기 계산이 길어집니다. 여기서는 단순하게 2차원 격자로 봤어요. 이제 같은 기울기와 라플라시안이 가격에서는 무엇이 되는지 거래소동으로 갑니다.</div>
 <div class="quiz" data-ans="b"><div class="q">주변 평균 지도에서 어떤 자리의 이웃이 0.3, 0.5, 0.5, 0.7입니다. 그 자리의 값은?</div><div class="opts"><button class="btn" data-o="a">0.3</button><button class="btn" data-o="b">0.5</button><button class="btn" data-o="c">0.7</button></div><div class="fb" data-ok="맞아요. 2.0 ÷ 4 = 0.5, 이웃 0.3보다 높으니 내려갈 길이 있습니다." data-no="네 이웃을 더해 4로 나눠 보세요."></div></div>
 </section>
 
@@ -383,19 +376,17 @@ footer{border-top:1px solid var(--line);margin-top:70px;padding:26px 0 40px;font
 <div class="talk"><div class="t edu" data-c="doctor/E07"><div><b>박사</b>1년 뒤 주식을 100원에 살 수 있는 권리(콜옵션)가 있어요. 오늘 주가가 오르면 이 권리 값은 어떻게 될까요?</div></div></div>
 <div class="pair">
 <div class="box why"><h3>왜 이 방법을 쓰나</h3>
-<p><b>문제:</b> 옵션 값은 ① 주가 S ② 남은 기간 τ(타우) ③ 변동성 σ(시그마)에 따라 움직이는 언덕입니다. 위험을 관리하려면 방향별 기울기를 알아야 합니다.</p>
+<p><b>문제:</b> 옵션 값은 ① 주가 ② 남은 기간 ③ 주가가 흔들리는 크기(변동성)에 따라 움직이는 언덕입니다. 위험을 관리하려면 방향별 기울기를 알아야 합니다.</p>
 <p><b>앞 방의 한계:</b> 공장 지형은 눈에 보이지만, 가격 언덕은 보이지 않습니다.</p>
 <p><b>해법:</b> 언덕의 기울기 성분에 이름을 붙입니다. 델타(주가 방향 기울기), 세타(시간 방향), 베가(변동성 방향), 감마(주가 방향으로 휜 정도).</p>
 <div class="easy"><b>쉽게 말하면</b> 등산 지도에서 "동쪽으로 가면 얼마나 오르나", "북쪽은?"을 따로 부르는 것과 같습니다.</div></div>
 <div class="box math"><h3>수학 수식을 어려워하는 조수가 대신 물어봅니다</h3>
-<div class="t" data-c="haru/E04"><div><b>하루</b>델타 0.54, 감마 0.020… 이 숫자들이 다 뭐예요?</div></div>
-<p><b>학교 수학으로 보면:</b> 미분(접선의 기울기)과 이계도함수(기울기가 변하는 정도).</p>
-<table><thead><tr><th>식 조각</th><th>읽는 법</th><th>뜻</th></tr></thead><tbody>
-<tr><td class="m">Δ = ∂C/∂S</td><td>델타</td><td>주가 1원 오를 때 옵션이 오르는 값</td></tr>
-<tr><td class="m">Γ = ∂²C/∂S²</td><td>감마</td><td>주가가 오를 때 델타가 커지는 속도</td></tr>
-<tr><td class="m">Θ = ∂C/∂t</td><td>세타</td><td>하루 지날 때 줄어드는 값</td></tr></tbody></table>
-<div class="try"><b>숫자로 한 번 해 보기</b> (S = 100원, τ = 1년)<br>옵션 값 C = <b>7.97원</b>, Δ = <b>0.54</b>, Γ = <b>0.020</b><br>Θ = −3.97원/년 → 하루 약 <b>−0.011원</b></div>
-<div class="t" data-c="haru/E10"><div><b>하루</b>(Δ, Θ, 베가)를 한 줄로 세우면 그게 바로 이 언덕의 ∇군요!</div></div>
+<div class="t" data-c="haru/E04"><div><b>하루</b>델타, 감마, 세타… 그리스 문자가 셋이나 나와요!</div></div>
+<p class="saywords"><b>말로 먼저:</b> 옵션 값 언덕에서 방향마다 기울기를 따로 잽니다. ① 주가가 1원 오를 때 옵션이 얼마나 오르나(델타) ② 그 오르는 정도가 주가 따라 얼마나 바뀌나(감마) ③ 하루 지날 때 얼마나 줄어드나(세타). 이름은 몰라도 "방향별 기울기"만 기억하면 됩니다.</p>
+<p><b>학교 수학으로 보면:</b> 미분(접선의 기울기)과 이계도함수(기울기가 바뀌는 정도)</p>
+<div class="try"><b>숫자로 한 번 해 보기</b><ol><li>주가 100원, 1년 남은 옵션의 값: <b>7.97원</b></li><li>주가가 1원 오르면 옵션은 약 <b>0.54원</b> 오름(델타)</li><li>하루가 지나면 옵션은 약 <b>0.011원</b> 줄어듦(세타)</li></ol></div>
+<details class="eq"><summary>식으로 보면 (몰라도 됩니다)</summary><table><thead><tr><th>식 조각</th><th>읽는 법</th><th>뜻</th></tr></thead><tbody><tr><td class="m">Δ = ∂C/∂S</td><td>델타</td><td>주가 1원 오를 때 옵션 값 변화</td></tr><tr><td class="m">Γ = ∂²C/∂S²</td><td>감마</td><td>주가가 오를 때 델타가 커지는 속도 (여기서 0.020)</td></tr><tr><td class="m">Θ = ∂C/∂t</td><td>세타</td><td>시간이 지날 때 옵션 값 변화 (1년에 −3.97원)</td></tr></tbody></table></details>
+<div class="t" data-c="haru/E10"><div><b>하루</b>방향별 기울기를 한 줄로 세우면 그게 바로 이 언덕의 ∇군요!</div></div>
 </div></div>
 <details><summary>이 방의 가격 계산(블랙-숄즈 식)이 깔고 있는 가정</summary><p style="margin:8px 0 0">① 주가는 매 순간 같은 비율(변동성 20%)로 무작위로 흔들린다 ② 금리·배당은 0 ③ 만기에만 권리를 쓸 수 있다(유럽형) ④ 거래 비용이 없다. 실제 시장은 이 가정과 다를 수 있어, 여기서는 단순하게 봤어요.</p></details>
 <div class="daily"><div><b>일상으로 치면</b>동쪽 기울기 0.54라면, 동쪽으로 1 m 가면 54 cm 오릅니다. 단, 아주 조금 갈 때만 그렇습니다.</div><div><b>거래소에서는</b>옵션을 판 쪽은 델타만큼 주식을 들고 있어 작은 움직임을 상쇄합니다(델타 헤지). 감마가 크면 자주 다시 맞춰야 합니다.</div></div>
@@ -403,18 +394,18 @@ footer{border-top:1px solid var(--line);margin-top:70px;padding:26px 0 40px;font
 <div class="talk" style="margin:8px 0">
 <div class="t bot" data-c="jupanbot/E16"><div><b>주판봇 (AI 답변 역할)</b>델타가 0.54이니, 주가가 10원 오르면 옵션은 정확히 5.40원 오릅니다!</div></div>
 <div class="t edu" data-c="doctor/E09"><div><b>박사</b>가정부터 볼까요? 델타는 접선이에요. 10원은 "아주 조금"일까요? 아래 실험에서 주가를 110원으로 옮겨 직접 확인해 봅시다.</div></div>
-<div class="t" data-c="moa/E10"><div><b>모아</b>실제로는 7.97원 → 14.29원, <b>6.33원</b> 올랐어요. 감마까지 넣으면 5.40 + ½ × 0.020 × 10² = <b>6.39원</b>으로 거의 맞아요.</div></div>
+<div class="t" data-c="moa/E10"><div><b>모아</b>실제로는 7.97원 → 14.29원, <b>6.33원</b> 올랐어요. 휘어짐(감마)까지 넣으면 5.40 + 0.99 = <b>6.39원</b>으로 거의 맞아요. (0.99 = ½ × 감마 0.0199 × 10 × 10)</div></div>
 </div>
 <p style="margin:0"><b>확인 습관:</b> ① 근사식의 가정(작은 움직임)이 지금 맞는가 ② 결과 숫자가 그림(휜 언덕)과 어울리는가. 이 둘을 묻고 받아들입니다.</p></div>
 <div class="lab"><div class="hd"><b>실험 ⑤ 3D 옵션 가격 언덕</b><span>끌어서 돌리기 · 점을 옮기면 화살표가 바뀝니다</span></div>
 <div class="fig" style="min-height:420px"><canvas id="r4cv" aria-label="주가와 남은 기간 위의 옵션 가격 3D 곡면"></canvas><div class="hint">빨강: 주가 방향 기울기(델타) · 파랑: 기간 방향 기울기</div></div>
 <div class="ctl">
-<div class="sl"><label for="r4s">주가 S</label><input type="range" id="r4s" min="60" max="140" step="1" value="100"><output id="r4so"></output></div>
-<div class="sl"><label for="r4t">남은 기간 τ</label><input type="range" id="r4t" min="0.05" max="1" step="0.05" value="1"><output id="r4to"></output></div>
-<div class="sl"><label for="r4v">변동성 σ</label><input type="range" id="r4v" min="0.1" max="0.5" step="0.05" value="0.2"><output id="r4vo"></output></div>
+<div class="sl"><label for="r4s">주가</label><input type="range" id="r4s" min="60" max="140" step="1" value="100"><output id="r4so"></output></div>
+<div class="sl"><label for="r4t">남은 기간</label><input type="range" id="r4t" min="0.05" max="1" step="0.05" value="1"><output id="r4to"></output></div>
+<div class="sl"><label for="r4v">흔들림 크기</label><input type="range" id="r4v" min="0.1" max="0.5" step="0.05" value="0.2"><output id="r4vo"></output></div>
 </div>
 <div class="read" id="r4read"></div></div>
-<div class="solve"><b>풀이</b> 주가 축으로 자르면 언덕은 아래로 볼록하게 휘어 있습니다(감마 > 0). 그래서 델타만 쓰는 직선 예측은 큰 움직임에서 늘 조금 모자랍니다. 만기가 가까워지면(τ가 작으면) 100원 근처가 날카롭게 꺾여 감마가 커집니다.</div>
+<div class="solve"><b>풀이</b> 주가 축으로 자르면 언덕은 아래로 볼록하게 휘어 있습니다(감마 > 0). 그래서 델타만 쓰는 직선 예측은 큰 움직임에서 늘 조금 모자랍니다. 만기가 가까워지면(남은 기간이 짧으면) 100원 근처가 날카롭게 꺾여 감마가 커집니다.</div>
 <div class="limit"><b>이 방의 한계</b> 주가 축 눈금이 "원" 단위라서, 비싼 주식일수록 같은 % 움직임이 더 크게 보입니다. 축을 바꾸면 어떨까요? 방 5로 갑니다.</div>
 <div class="quiz" data-ans="a"><div class="q">감마가 크다는 것은 무슨 뜻일까요?</div><div class="opts"><button class="btn" data-o="a">주가가 움직일 때 델타가 빨리 변한다</button><button class="btn" data-o="b">시간이 지나면 값이 빨리 준다</button><button class="btn" data-o="c">변동성이 크다</button></div><div class="fb" data-ok="맞아요. 감마는 주가 방향으로 휜 정도, 즉 델타의 변화 속도입니다." data-no="감마는 주가 방향의 2차 미분입니다. 기울기(델타)가 얼마나 빨리 바뀌는지예요."></div></div>
 </section>
@@ -428,18 +419,16 @@ footer{border-top:1px solid var(--line);margin-top:70px;padding:26px 0 40px;font
 <div class="talk"><div class="t edu" data-c="doctor/E07"><div><b>박사</b>주가 100원일 때 1%는 1원, 200원일 때 1%는 2원이에요. 차트가 위로 갈수록 더 출렁여 보이는데, 정말 더 위험해진 걸까요?</div></div></div>
 <div class="pair">
 <div class="box why"><h3>왜 이 방법을 쓰나</h3>
-<p><b>문제:</b> 원 단위 축에서는 퍼짐이 주가에 비례해 커집니다. 그래서 옵션 가격 식에 S², S 같은 배율이 붙어 계산이 꼬입니다.</p>
+<p><b>문제:</b> 원 단위 축에서는 퍼짐이 주가에 비례해 커집니다. 그래서 옵션 가격 식에 주가를 곱한 항이 붙어 계산이 꼬입니다.</p>
 <p><b>앞 방의 한계:</b> 언덕의 기울기는 읽었지만, 축 눈금 자체가 자리마다 다른 문제는 그대로였습니다.</p>
-<p><b>해법:</b> 축을 로그(x = ln S)로 바꾸면 1%는 어디서나 같은 0.01 눈금입니다. 입구 방과 같은 이야기로, 원 단위 한 눈금 = S × 로그 한 눈금(축척 인자 S)입니다.</p>
+<p><b>해법:</b> 축을 로그 눈금으로 바꾸면 1%는 어디서나 같은 간격입니다. 입구 방과 같은 이야기로, 원 단위 한 눈금 = 주가 × 로그 한 눈금(배율은 주가)입니다.</p>
 <div class="easy"><b>쉽게 말하면</b> 아이 키를 "몇 cm 컸나" 대신 "몇 % 컸나"로 재면, 형과 동생의 성장을 공평하게 비교할 수 있습니다.</div></div>
 <div class="box math"><h3>수학 수식을 어려워하는 조수가 대신 물어봅니다</h3>
 <div class="t" data-c="haru/E04"><div><b>하루</b>로그로 바꾸면 왜 식이 깔끔해져요?</div></div>
-<p><b>학교 수학으로 보면:</b> 로그함수 ln(ab) = ln a + ln b. 곱하기(×1.01)가 더하기(+0.01 정도)로 바뀝니다.</p>
-<table><thead><tr><th>식 조각</th><th>뜻</th></tr></thead><tbody>
-<tr><td class="m">dS = S · dx</td><td>원 단위 한 눈금 = 주가 × 로그 한 눈금</td></tr>
-<tr><td class="m">−Θ = ½σ²S²Γ</td><td>시간이 깎는 값 = 휘어짐이 주는 값(금리 0일 때)</td></tr>
-<tr><td>로그 좌표에서는</td><td>S²이 사라지고 계수가 상수가 됩니다. 변수를 한 번 더 바꾸면 열이 퍼지는 식(열 방정식)과 같은 꼴이 됩니다</td></tr></tbody></table>
-<div class="try"><b>숫자로 한 번 해 보기</b> (방 4의 S = 100)<br>½ × 0.04 × 100² × 0.01985 = <b>3.97</b> = −Θ ✓<br>로그 좌표의 1% 눈금: 100원에서도 200원에서도 <b>0.00995</b></div>
+<p class="saywords"><b>말로 먼저:</b> 주가는 "몇 원"보다 "몇 %"로 움직입니다. 원 단위 눈금에서는 비싼 주식의 1%가 더 크게 그려져서, 식에 주가가 곱해진 항이 붙습니다. 로그 눈금은 1%를 어디서나 같은 간격으로 그려 주니 그 곱하기가 사라집니다.</p>
+<p><b>학교 수학으로 보면:</b> 로그함수 — 곱하기가 더하기로 바뀐다</p>
+<div class="try"><b>숫자로 한 번 해 보기</b><ol><li>100원 → 101원, 200원 → 202원: 둘 다 <b>1%</b> 오름</li><li>원 단위 눈금에서 간격: <b>1원</b>과 <b>2원</b> (두 배로 보임)</li><li>로그 눈금에서 간격: 둘 다 <b>0.00995</b> (똑같음)</li></ol></div>
+<details class="eq"><summary>식으로 보면 (몰라도 됩니다)</summary><table><thead><tr><th>식 조각</th><th>읽는 법</th><th>뜻</th></tr></thead><tbody><tr><td class="m">x = ln S</td><td>엑스는 로그 에스</td><td>주가를 로그 눈금으로 바꾼 값</td></tr><tr><td class="m">dS = S · dx</td><td>—</td><td>원 단위 한 눈금 = 주가 × 로그 한 눈금(축척 인자는 주가)</td></tr><tr><td class="m">−Θ = ½σ²S²Γ</td><td>—</td><td>시간이 깎는 값 = 휘어짐이 주는 값(금리 0). 방 4 숫자로 ½ × 0.04 × 100² × 0.01985 = 3.97</td></tr><tr><td class="m">로그 좌표에서는</td><td>—</td><td>S²이 사라지고 계수가 상수가 됨. 한 번 더 바꾸면 열 방정식과 같은 꼴</td></tr></tbody></table></details>
 <div class="t" data-c="haru/E10"><div><b>하루</b>점전하가 구좌표에서 한 줄이 됐던 것처럼, 가격 식은 로그 좌표에서 짧아지는군요.</div></div>
 </div></div>
 <div class="daily"><div><b>일상으로 치면</b>월급 200만 원 사람의 10만 원 인상과 400만 원 사람의 20만 원 인상은 같은 5%입니다.</div><div><b>거래소에서는</b>장기 주가 차트는 로그 눈금으로 봅니다. 위험(변동성)도 % 단위로 말합니다.</div></div>
@@ -472,14 +461,11 @@ footer{border-top:1px solid var(--line);margin-top:70px;padding:26px 0 40px;font
 <div class="easy"><b>쉽게 말하면</b> 기울어진 사진을 돌려 수평을 맞추면 위아래·좌우가 깔끔하게 나뉩니다.</div></div>
 <div class="box math"><h3>수학 수식을 어려워하는 조수가 대신 물어봅니다</h3>
 <div class="t" data-c="haru/E04"><div><b>하루</b>축을 돌리면 왜 섞임이 0이 돼요?</div></div>
-<p><b>학교 수학으로 보면:</b> 삼각함수 배각 공식 cos 2α, sin 2α.</p>
-<table><thead><tr><th>식 조각</th><th>뜻</th></tr></thead><tbody>
-<tr><td class="m">c = 0.6</td><td>함께 움직이는 정도(상관계수). −1이면 정반대, 1이면 똑같이 움직임</td></tr>
-<tr><td class="m">α</td><td>축을 돌린 각도(알파)</td></tr>
-<tr><td class="m">섞임 = c · cos 2α</td><td>새 축끼리 함께 움직이는 정도</td></tr>
-<tr><td class="m">퍼짐 = 1 ± c · sin 2α</td><td>새 축 두 방향의 흔들림(분산 = 흔들림 폭의 제곱)</td></tr></tbody></table>
-<div class="try"><b>숫자로 한 번 해 보기</b> (α = 45°)<br>섞임 = 0.6 × cos 90° = <b>0</b><br>함께 방향 퍼짐 = 1 + 0.6 = <b>1.6</b>, 엇갈림 방향 = 1 − 0.6 = <b>0.4</b></div>
-<div class="t" data-c="haru/E10"><div><b>하루</b>방 1에서 원통좌표를 고른 것처럼, 여기선 "돌린 직교좌표"를 고른 거네요.</div></div>
+<p class="saywords"><b>말로 먼저:</b> 함께 오르내리는 두 종목의 점은 비스듬한 타원을 그립니다. 축을 타원의 긴 방향과 짧은 방향에 맞춰 돌리면, 새 두 축은 서로 따로 움직입니다. 두 종목의 흔들림 크기가 같으면 그 각도는 언제나 45°입니다.</p>
+<p><b>학교 수학으로 보면:</b> 삼각함수(배각 공식)</p>
+<div class="try"><b>숫자로 한 번 해 보기</b><ol><li>함께 움직이는 정도(상관) 0.6, 축을 45° 돌림</li><li>함께 오르내리는 방향의 퍼짐: 1 + 0.6 = <b>1.6</b></li><li>서로 엇갈리는 방향의 퍼짐: 1 − 0.6 = <b>0.4</b></li><li>두 새 축의 섞임: <b>0</b></li></ol></div>
+<details class="eq"><summary>식으로 보면 (몰라도 됩니다)</summary><table><thead><tr><th>식 조각</th><th>읽는 법</th><th>뜻</th></tr></thead><tbody><tr><td class="m">c</td><td>상관계수</td><td>−1이면 정반대, 1이면 똑같이 움직임</td></tr><tr><td class="m">α</td><td>알파</td><td>축을 돌린 각도</td></tr><tr><td class="m">섞임 = c · cos 2α</td><td>—</td><td>새 축끼리 함께 움직이는 정도</td></tr><tr><td class="m">퍼짐 = 1 ± c · sin 2α</td><td>—</td><td>새 축 두 방향의 흔들림(분산)</td></tr></tbody></table></details>
+<div class="t" data-c="haru/E10"><div><b>하루</b>방 1에서 원통좌표를 고른 것처럼, 여기선 "돌린 가로·세로 축"을 고른 거네요.</div></div>
 </div></div>
 <div class="daily"><div><b>일상으로 치면</b>두 사람이 함께 걷는 걸 "둘의 평균 위치"와 "둘 사이 간격"으로 나눠 보면 훨씬 단순해집니다.</div><div><b>거래소에서는</b>"시장 전체가 같이 움직이는 위험"과 "종목끼리 엇갈리는 위험"을 나눠 관리합니다. 종목이 많으면 이 방향 찾기를 주성분 분석(PCA)이 자동으로 합니다.</div></div>
 <div class="talk">
@@ -490,8 +476,8 @@ footer{border-top:1px solid var(--line);margin-top:70px;padding:26px 0 40px;font
 <div class="lab"><div class="hd"><b>실험 ⑦ 축 돌리기</b><span>가상 하루 수익률 300일</span></div>
 <div class="fig" style="min-height:380px"><svg id="r6svg" role="img" aria-label="두 종목 수익률 점구름과 돌린 축"></svg></div>
 <div class="ctl">
-<div class="sl"><label for="r6r">상관 c</label><input type="range" id="r6r" min="-0.9" max="0.9" step="0.1" value="0.6"><output id="r6ro"></output></div>
-<div class="sl"><label for="r6a">돌린 각 α</label><input type="range" id="r6a" min="0" max="90" step="1" value="0"><output id="r6ao"></output></div>
+<div class="sl"><label for="r6r">함께 움직임</label><input type="range" id="r6r" min="-0.9" max="0.9" step="0.1" value="0.6"><output id="r6ro"></output></div>
+<div class="sl"><label for="r6a">축 돌린 각도</label><input type="range" id="r6a" min="0" max="90" step="1" value="0"><output id="r6ao"></output></div>
 </div>
 <div class="read" id="r6read"></div></div>
 <div class="solve"><b>풀이</b> 두 종목의 흔들림이 같으면, 상관이 얼마든 45°에서 섞임이 0이 됩니다. 새 축 두 방향의 퍼짐 1.6과 0.4를 더하면 2로, 원래 두 축의 합(1 + 1)과 같습니다. 돌려도 전체 흔들림은 그대로입니다.</div>
@@ -512,13 +498,13 @@ footer{border-top:1px solid var(--line);margin-top:70px;padding:26px 0 40px;font
 <section class="room" id="summary">
 <h2>정리 — 일곱 방을 한 장으로</h2>
 <p>원자료 표의 네 줄 가운데 그래디언트(방 3·4)와 라플라시안(방 3·5)을 현장에 썼습니다. 발산과 회전(소용돌이)은 ∇ 특별편 미분 쪽 방 3·4에서 다룹니다.</p>
-<div class="scroll"><table class="sum"><thead><tr><th>방</th><th>고른 좌표</th><th>배율(축척 인자)</th><th>한 줄 요약</th></tr></thead><tbody>
-<tr><td>0 한 걸음</td><td>원통·구</td><td>ρ, r, r sin θ</td><td>각도 한 걸음은 배율을 곱해야 실제 거리</td></tr>
-<tr><td>1 팔이 닿는 곳</td><td>원통</td><td>1, ρ, 1</td><td>닿는 곳 = 15 ≤ ρ ≤ 65 cm, 세 줄</td></tr>
-<tr><td>2 쭉 편 팔</td><td>관절 각도</td><td>L₁L₂ sin θ₂</td><td>배율 0인 자세(특이점)는 피한다</td></tr>
+<div class="scroll"><table class="sum"><thead><tr><th>방</th><th>고른 좌표</th><th>배율(한 걸음의 실제 크기)</th><th>한 줄 요약</th></tr></thead><tbody>
+<tr><td>0 한 걸음</td><td>원통·구</td><td>중심에서 거리</td><td>각도 한 걸음은 배율을 곱해야 실제 거리</td></tr>
+<tr><td>1 팔이 닿는 곳</td><td>원통</td><td>중심에서 거리</td><td>닿는 곳 = 거리 15~65 cm, 세 줄</td></tr>
+<tr><td>2 쭉 편 팔</td><td>관절 각도</td><td>팔 길이 × sin(팔꿈치 각)</td><td>배율 0인 자세(특이점)는 피한다</td></tr>
 <tr><td>3 드론 길</td><td>격자</td><td>—</td><td>주변 평균 지도엔 웅덩이가 없다</td></tr>
-<tr><td>4 옵션 언덕</td><td>(S, τ, σ)</td><td>—</td><td>그리스 문자 = 언덕의 기울기·휘어짐</td></tr>
-<tr><td>5 로그 좌표</td><td>x = ln S</td><td>S</td><td>로그 눈금에선 퍼짐이 고르다</td></tr>
+<tr><td>4 옵션 언덕</td><td>주가·기간·흔들림</td><td>—</td><td>그리스 문자 = 언덕의 기울기·휘어짐</td></tr>
+<tr><td>5 로그 좌표</td><td>로그 눈금</td><td>주가</td><td>로그 눈금에선 퍼짐이 고르다</td></tr>
 <tr><td>6 두 자산</td><td>돌린 직교</td><td>1, 1</td><td>45°에서 섞임 0, 퍼짐 1.6과 0.4</td></tr>
 </tbody></table></div>
 </section>
@@ -608,7 +594,7 @@ function make3D(cv,draw,yaw0,pitch0){
   g+=`<circle cx="${cx}" cy="${cy}" r="4" fill="#1c2230"/><text x="${cx-8}" y="${cy-8}" font-size="13" text-anchor="end" fill="#5d6676">중심</text>`;
   for(let r=1;r<=3;r++)g+=`<text x="${cx+r*k}" y="${cy+16}" font-size="12" text-anchor="middle" fill="#5d6676">${r} m</text>`;
   s.innerHTML=g;
-  $('r0read').innerHTML=`ρ = <b>${rho.toFixed(1)} m</b>에서 각도 dφ = <b>${dp.toFixed(2)}</b> 돌리면 실제로 <b>${(rho*dp).toFixed(3)} m</b> 움직입니다. 배율(축척 인자) = ρ = ${rho.toFixed(1)}.<br>같은 각도라도 안쪽 ρ = 0.5 m에서는 ${(0.5*dp).toFixed(3)} m, 바깥쪽이 ${(rho/0.5).toFixed(1)}배 더 움직입니다.`};
+  $('r0read').innerHTML=`중심에서 <b>${rho.toFixed(1)} m</b> 떨어진 곳에서 <b>${dp.toFixed(2)}</b>만큼 돌리면 실제로 <b>${(rho*dp).toFixed(3)} m</b> 움직입니다. 배율(축척 인자) = 중심에서 거리 ${rho.toFixed(1)}.<br>같은 각도라도 안쪽 0.5 m 자리에서는 ${(0.5*dp).toFixed(3)} m, 바깥쪽이 ${(rho/0.5).toFixed(1)}배 더 움직입니다.`};
  bindSl('r0rho',v=>v.toFixed(1)+' m',draw)();bindSl('r0dp',v=>v.toFixed(2),draw)();obs(s,draw)}
 
 // ---------- ROOM 1 ----------
@@ -634,8 +620,8 @@ function make3D(cv,draw,yaw0,pitch0){
   g.line([0,0,0],[sc(T.tx),sc(T.ty),0],'#d4691f',1.5,[4,4]);g.line([sc(T.tx),sc(T.ty),0],[sc(T.tx),sc(T.ty),z],'#d4691f',1,[3,3]);
  },-0.6,0.62);
  const upd=()=>{const T=tip(),rho=Math.hypot(T.tx,T.ty),ph=Math.atan2(T.ty,T.tx)*R2D;
-  const bx=BOX.map(b=>{const r=Math.hypot(b.x,b.y),ok=r>=15&&r<=65;return`상자 ${b.n}: ρ = ${r.toFixed(1)} cm → <span class="${ok?'good':'bad'}">${ok?'닿음':'닿지 않음'}</span>`}).join(' · ');
-  $('r1read').innerHTML=`팔끝 직교좌표 (x, y, z) = (${T.tx.toFixed(1)}, ${T.ty.toFixed(1)}, ${T.z}) cm<br>팔끝 원통좌표 (ρ, φ, z) = (<b>${rho.toFixed(1)} cm</b>, ${ph.toFixed(0)}°, ${T.z} cm) — 닿는 범위 15 ≤ ρ ≤ 65<br>${bx}`;st.render()};
+  const bx=BOX.map(b=>{const r=Math.hypot(b.x,b.y),ok=r>=15&&r<=65;return`상자 ${b.n}: 중심에서 ${r.toFixed(1)} cm → <span class="${ok?'good':'bad'}">${ok?'닿음':'닿지 않음'}</span>`}).join(' · ');
+  $('r1read').innerHTML=`팔끝 직교좌표 (x, y, z) = (${T.tx.toFixed(1)}, ${T.ty.toFixed(1)}, ${T.z}) cm<br>팔끝 원통좌표 (중심에서 거리, 방향, 높이) = (<b>${rho.toFixed(1)} cm</b>, ${ph.toFixed(0)}°, ${T.z} cm) — 닿는 거리 15~65 cm<br>${bx}`;st.render()};
  ['r1a','r1b','r1z'].forEach(id=>bindSl(id,v=>id==='r1z'?v+' cm':v+'°',upd));
  $('r1ws').addEventListener('click',e=>{ws=!ws;e.currentTarget.setAttribute('aria-pressed',ws);st.render()});
  $('r1goB').addEventListener('click',()=>{const b=BOX[1],r=Math.hypot(b.x,b.y);const c2=(r*r-L1*L1-L2*L2)/(2*L1*L2),t2=Math.acos(c2);const t1=Math.atan2(b.y,b.x)-Math.atan2(L2*Math.sin(t2),L1+L2*Math.cos(t2));
@@ -658,7 +644,7 @@ function make3D(cv,draw,yaw0,pitch0){
   g+=lab(p1,'첫째 관절만 돌림','#24345c',-6)+lab(p3,'둘째 관절만 돌림','#1f7a8c',14);
   s.innerHTML=g;
   const thin=Math.abs(Math.sin(b))<0.1;
-  $('r2read').innerHTML=`한 걸음 상자 배율 L₁L₂ sin θ₂ = 40 × 25 × ${Math.sin(b).toFixed(2)} = <b>${area.toFixed(0)}</b> · 관절마다 0.01 rad면 넓이 <b>${(area*1e-4).toFixed(3)} cm²</b><br>${thin?'<span class="bad">특이점 가까움 — 상자가 납작한 선이 되어 한 방향으로 움직일 수 없습니다.</span>':'<span class="good">상자가 넓어 어느 방향으로든 움직일 수 있습니다.</span>'} (그림의 상자는 보기 좋게 15배 키움)`};
+  $('r2read').innerHTML=`한 걸음 상자 배율 = 40 × 25 × sin(팔꿈치 각) = 40 × 25 × ${Math.sin(b).toFixed(2)} = <b>${area.toFixed(0)}</b> · 관절마다 0.01 rad면 넓이 <b>${(area*1e-4).toFixed(3)} cm²</b><br>${thin?'<span class="bad">특이점 가까움 — 상자가 납작한 선이 되어 한 방향으로 움직일 수 없습니다.</span>':'<span class="good">상자가 넓어 어느 방향으로든 움직일 수 있습니다.</span>'} (그림의 상자는 보기 좋게 15배 키움)`};
  bindSl('r2a',v=>v+'°',draw)();bindSl('r2b',v=>v+'°',draw)();obs(s,draw)}
 
 // ---------- ROOM 3 ----------
@@ -722,7 +708,7 @@ const BS=(S,tau,sg,K=100)=>{const v=sg*Math.sqrt(tau),d1=(Math.log(S/K)+.5*sg*sg
   g.arrow(P,[P[0]+dS[0]/nS*1.1,P[1],P[2]+dS[2]/nS*1.1],'#c0392b',3,11);g.arrow(P,[P[0],P[1]+dT[1]/nT*1.1,P[2]+dT[2]/nT*1.1],'#2f6fd6',3,11);g.dot(P,6,'#1c2230');
  },-0.5,0.5);
  const upd=()=>{const S=+$('r4s').value,t=+$('r4t').value,sg=+$('r4v').value,r=BS(S,t,sg);
-  $('r4read').innerHTML=`옵션 값 C = <b>${r.C.toFixed(2)}원</b> · 델타 Δ = <b>${r.D.toFixed(2)}</b> (주가 1원 → ${r.D.toFixed(2)}원) · 감마 Γ = <b>${r.G.toFixed(3)}</b><br>세타: 하루 지나면 <b>${(-r.dTau/365).toFixed(3)}원</b> · 베가: 변동성 1%p 오르면 <b>+${(r.V/100).toFixed(2)}원</b>${S===110&&t===1&&Math.abs(sg-.2)<1e-9?'<br><b>AI 판단 코너 확인:</b> 100원 → 110원에서 실제 상승 '+(r.C-BS(100,1,.2).C).toFixed(2)+'원 (델타만 쓴 예측 5.40원)':''}`;st.render()};
+  $('r4read').innerHTML=`옵션 값 <b>${r.C.toFixed(2)}원</b> · 주가 1원 오르면 <b>+${r.D.toFixed(2)}원</b>(델타) · 델타가 바뀌는 속도 <b>${r.G.toFixed(3)}</b>(감마)<br>하루 지나면 <b>${(-r.dTau/365).toFixed(3)}원</b>(세타) · 흔들림 크기 1%p 커지면 <b>+${(r.V/100).toFixed(2)}원</b>(베가)${S===110&&t===1&&Math.abs(sg-.2)<1e-9?'<br><b>AI 판단 코너 확인:</b> 100원 → 110원에서 실제 상승 '+(r.C-BS(100,1,.2).C).toFixed(2)+'원 (델타만 쓴 예측 5.40원)':''}`;st.render()};
  bindSl('r4s',v=>v+'원',upd);bindSl('r4t',v=>v.toFixed(2)+'년',upd);bindSl('r4v',v=>Math.round(v*100)+'%',upd);
  ['r4s','r4t','r4v'].forEach(id=>$(id).dispatchEvent(new Event('input')))}
 
@@ -760,7 +746,7 @@ const BS=(S,tau,sg,K=100)=>{const v=sg*Math.sqrt(tau),d1=(Math.log(S/K)+.5*sg*sg
   const v1=1+r*Math.sin(2*a),v2=1-r*Math.sin(2*a),cv=r*Math.cos(2*a);
   [[u,v1,'#d4691f'],[v,v2,'#1f7a8c']].forEach(([d,va,c])=>{const s1=Math.sqrt(Math.max(va,0))*1.6449*k;g+=`<line x1="${cx-d[0]*s1}" y1="${cy+d[1]*s1}" x2="${cx+d[0]*s1}" y2="${cy-d[1]*s1}" stroke="${c}" stroke-width="9" stroke-opacity=".35" stroke-linecap="round"/>`});
   s.innerHTML=g;
-  $('r6read').innerHTML=`새 축 1 퍼짐 <b>${v1.toFixed(2)}</b> · 새 축 2 퍼짐 <b>${v2.toFixed(2)}</b> · 두 축의 섞임 <b>${(Math.abs(cv)<.005?0:cv).toFixed(2)}</b> ${Math.abs(cv)<.005?'<span class="good">섞임 0!</span>':''}<br>퍼짐 합 ${(v1+v2).toFixed(2)} (돌려도 늘 2) · 반반 섞은 분산 = (1 + c) ÷ 2 = <b>${((1+r)/2).toFixed(2)}</b>배 → 흔들림 폭(표준편차)으로는 <b>${Math.sqrt((1+r)/2).toFixed(2)}</b>배`};
+  $('r6read').innerHTML=`새 축 1 퍼짐 <b>${v1.toFixed(2)}</b> · 새 축 2 퍼짐 <b>${v2.toFixed(2)}</b> · 두 축의 섞임 <b>${(Math.abs(cv)<.005?0:cv).toFixed(2)}</b> ${Math.abs(cv)<.005?'<span class="good">섞임 0!</span>':''}<br>퍼짐 합 ${(v1+v2).toFixed(2)} (돌려도 늘 2) · 반반 섞은 분산 = (1 + 상관) ÷ 2 = <b>${((1+r)/2).toFixed(2)}</b>배 → 흔들림 폭(표준편차)으로는 <b>${Math.sqrt((1+r)/2).toFixed(2)}</b>배`};
  bindSl('r6r',v=>v.toFixed(1),draw)();bindSl('r6a',v=>v+'°',draw)();obs(s,draw)}
 
 // ---------- DUEL ----------
