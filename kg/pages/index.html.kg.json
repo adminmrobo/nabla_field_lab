@@ -1,0 +1,593 @@
+{
+ "version": "1.0",
+ "page": "index",
+ "nodes": [
+  {
+   "id": "lab:concept/gradient",
+   "type": "Concept",
+   "label": {
+    "ko": "기울기",
+    "en": "gradient"
+   },
+   "page": "index",
+   "anchor": "#cast",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "math",
+    "ai",
+    "dl"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "변수를 아주 조금 바꿨을 때 손실이 얼마나 변하는지. 손실을 줄이려면 기울기 반대쪽으로 고친다."
+   }
+  },
+  {
+   "id": "lab:concept/scale-factor",
+   "type": "Concept",
+   "label": {
+    "ko": "배율(스케일 인자)",
+    "en": "Scale factor"
+   },
+   "page": "index",
+   "anchor": "#summary",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ai",
+    "math"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "좌표 1만큼이 실제 거리 몇인가. 원통 (1, r, 1), 구면 (1, r, r sin θ)."
+   }
+  },
+  {
+   "id": "lab:concept/norm",
+   "type": "Concept",
+   "label": {
+    "ko": "길이(노름)",
+    "en": "Norm"
+   },
+   "page": "index",
+   "anchor": "#room-0",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "math"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "피타고라스로 잰 화살표 길이"
+   }
+  },
+  {
+   "id": "lab:concept/attitude",
+   "type": "Concept",
+   "label": {
+    "ko": "자세",
+    "en": "Attitude (orientation)"
+   },
+   "page": "index",
+   "anchor": "#cast",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "geom",
+    "math",
+    "ai"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "물체가 어느 쪽을 보고 얼마나 기울었는지."
+   }
+  },
+  {
+   "id": "lab:concept/laplacian",
+   "type": "Concept",
+   "label": {
+    "ko": "라플라시안",
+    "en": "Laplacian"
+   },
+   "page": "index",
+   "anchor": "#cast",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "math",
+    "ai"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "2차 편미분의 합 = 헤시안 고유값의 합 = ∇·∇f."
+   }
+  },
+  {
+   "id": "lab:concept/cylindrical",
+   "type": "Concept",
+   "label": {
+    "ko": "원통좌표",
+    "en": "Cylindrical coordinates"
+   },
+   "page": "index",
+   "anchor": "#lineup",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "geom",
+    "math"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "극좌표 + 높이 (ρ, φ, z)."
+   }
+  },
+  {
+   "id": "lab:concept/vector-2d",
+   "type": "Concept",
+   "label": {
+    "ko": "화살표(벡터)",
+    "en": "Vector"
+   },
+   "page": "index",
+   "anchor": "#lineup",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "geom",
+    "math"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "자리가 아닌 이동. 같은 자리끼리 더한다."
+   }
+  },
+  {
+   "id": "lab:concept/curl",
+   "type": "Concept",
+   "label": {
+    "ko": "회전",
+    "en": "Curl"
+   },
+   "page": "index",
+   "anchor": "#cast",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "math",
+    "ai"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "∇×F. 작은 바람개비가 가장 빨리 도는 축과 세기(빠르기의 두 배)."
+   }
+  },
+  {
+   "id": "lab:term/gradient-term",
+   "type": "Term",
+   "label": {
+    "ko": "그래디언트",
+    "en": "gradient term"
+   },
+   "page": "index",
+   "anchor": "#cast",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "math"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "높이 지도에서 가장 가파르게 오르는 방향과 가파름을 나타내는 화살표."
+   }
+  },
+  {
+   "id": "lab:concept/volatility",
+   "type": "Concept",
+   "label": {
+    "ko": "변동성",
+    "en": "volatility"
+   },
+   "page": "index",
+   "anchor": "#room-4",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "math",
+    "fin",
+    "stats"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "수익률이 얼마나 크게 출렁이는지. 이 페이지에서는 수익률의 표준편차(σ)로 잰다."
+   }
+  },
+  {
+   "id": "lab:concept/variance",
+   "type": "Concept",
+   "label": {
+    "ko": "분산",
+    "en": "variance"
+   },
+   "page": "index",
+   "anchor": "#room-6",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "stats",
+    "math",
+    "econ"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "값이 평균에서 흩어진 정도. 주성분이 담은 분산의 몫으로 정보량을 가늠한다."
+   }
+  },
+  {
+   "id": "lab:concept/orthogonality",
+   "type": "Concept",
+   "label": {
+    "ko": "직각(직교)",
+    "en": "Orthogonality"
+   },
+   "page": "index",
+   "anchor": "#room-1",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "math"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "겹침 점수 0."
+   }
+  },
+  {
+   "id": "lab:concept/vector",
+   "type": "Concept",
+   "label": {
+    "ko": "벡터",
+    "en": "Vector"
+   },
+   "page": "index",
+   "anchor": "#lineup",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "mentioned",
+   "domain": [
+    "math",
+    "dl"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "숫자 한 줄. 데이터 한 행, 가중치, 임베딩"
+   }
+  },
+  {
+   "id": "lab:topic/calculus-optimization-math",
+   "type": "Topic",
+   "label": {
+    "ko": "미적분과 최적화 수학",
+    "en": "Calculus for optimization"
+   },
+   "page": "index",
+   "anchor": "#kg",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/normed-spaces",
+   "type": "Topic",
+   "label": {
+    "ko": "노름공간과 거리",
+    "en": "Normed spaces and metrics"
+   },
+   "page": "index",
+   "anchor": "#kg",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "math"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/coordinates",
+   "type": "Topic",
+   "label": {
+    "ko": "좌표계",
+    "en": "Coordinate systems"
+   },
+   "page": "index",
+   "anchor": "#kg",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "geom"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/vectors-geometry",
+   "type": "Topic",
+   "label": {
+    "ko": "벡터와 내적의 기하",
+    "en": "Vectors and the geometry of inner products"
+   },
+   "page": "index",
+   "anchor": "#kg",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "geom"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/gradient",
+   "type": "Topic",
+   "label": {
+    "ko": "그래디언트(∇)",
+    "en": "Gradient (nabla)"
+   },
+   "page": "index",
+   "anchor": "#kg",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "math"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/volatility-models",
+   "type": "Topic",
+   "label": {
+    "ko": "변동성 모형(GARCH)",
+    "en": "Volatility models (GARCH)"
+   },
+   "page": "index",
+   "anchor": "#kg",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "stats"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/dispersion",
+   "type": "Topic",
+   "label": {
+    "ko": "퍼짐",
+    "en": "Measures of dispersion"
+   },
+   "page": "index",
+   "anchor": "#kg",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "stats"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/inner-product-orthogonality",
+   "type": "Topic",
+   "label": {
+    "ko": "내적과 직교",
+    "en": "Inner products and orthogonality"
+   },
+   "page": "index",
+   "anchor": "#kg",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "math"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/vector-spaces",
+   "type": "Topic",
+   "label": {
+    "ko": "벡터공간",
+    "en": "Vector spaces"
+   },
+   "page": "index",
+   "anchor": "#kg",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "math"
+   ],
+   "match": []
+  }
+ ],
+ "edges": [
+  {
+   "s": "lab:concept/gradient",
+   "p": "lab:broader",
+   "o": "lab:topic/calculus-optimization-math",
+   "anchor": "#cast",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/scale-factor",
+   "p": "lab:broader",
+   "o": "lab:topic/calculus-optimization-math",
+   "anchor": "#summary",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/norm",
+   "p": "lab:broader",
+   "o": "lab:topic/normed-spaces",
+   "anchor": "#room-0",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/attitude",
+   "p": "lab:broader",
+   "o": "lab:topic/calculus-optimization-math",
+   "anchor": "#cast",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/laplacian",
+   "p": "lab:broader",
+   "o": "lab:topic/calculus-optimization-math",
+   "anchor": "#cast",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/cylindrical",
+   "p": "lab:broader",
+   "o": "lab:topic/coordinates",
+   "anchor": "#lineup",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/vector-2d",
+   "p": "lab:broader",
+   "o": "lab:topic/vectors-geometry",
+   "anchor": "#lineup",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/curl",
+   "p": "lab:broader",
+   "o": "lab:topic/calculus-optimization-math",
+   "anchor": "#cast",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:term/gradient-term",
+   "p": "lab:broader",
+   "o": "lab:topic/gradient",
+   "anchor": "#cast",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/volatility",
+   "p": "lab:broader",
+   "o": "lab:topic/volatility-models",
+   "anchor": "#room-4",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/variance",
+   "p": "lab:broader",
+   "o": "lab:topic/dispersion",
+   "anchor": "#room-6",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/orthogonality",
+   "p": "lab:broader",
+   "o": "lab:topic/inner-product-orthogonality",
+   "anchor": "#room-1",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/vector",
+   "p": "lab:broader",
+   "o": "lab:topic/vector-spaces",
+   "anchor": "#lineup",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/vector",
+   "p": "lab:hasPart",
+   "o": "lab:concept/norm",
+   "anchor": "#lineup",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  },
+  {
+   "s": "lab:concept/gradient",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:concept/laplacian",
+   "anchor": "#cast",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  },
+  {
+   "s": "lab:concept/curl",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:concept/laplacian",
+   "anchor": "#cast",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  },
+  {
+   "s": "lab:term/gradient-term",
+   "p": "lab:partOf",
+   "o": "lab:concept/gradient",
+   "anchor": "#cast",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  }
+ ]
+}
